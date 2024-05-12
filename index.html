@@ -8,13 +8,36 @@
 </head>
 <body>
   <nav id="navbar">
-    <ul id="nav-links">
-      <li id="home-button"><a href="#introduction" class="links-buttons"><img src="home.png" alt="Home" class="nav-images"> <p class="labels">Home</p></a></li>
-      <li id="about-button"><a href="#about" class="links-buttons"><img src="home.png" alt="About" class="nav-images"><p class="labels">About</p></a></li>
-      <li id="skills-button"><a href="#skills" class="links-buttons"><img src="home.png" alt="Skills" class="nav-images"><p class="labels">Skills</p></a></li>
-      <li id="projects-button"><a href="#projects" class="links-buttons"><img src="home.png" alt="Projects" class="nav-images"><p class="labels">Projects</p></a></li>
-      <li id="contact-button"><a href="#contact" class="links-buttons"><img src="home.png" alt="Contact" class="nav-images"><p class="labels">Contact</p></a></li>
-  </ul>
+    <a href="#introduction" class="links-buttons active">
+      <img src="home.png" alt="Home" class="nav-images">
+      <div class="label-div">
+        <p class="labels">Home</p>
+      </div>
+    </a>
+    <a href="#about" class="links-buttons">
+      <img src="home.png" alt="About" class="nav-images">
+      <div class="label-div">
+        <p class="labels">About</p>
+      </div>
+    </a>
+    <a href="#skills" class="links-buttons">
+      <img src="home.png" alt="Skills" class="nav-images">
+      <div class="label-div">
+        <p class="labels">Skills</p>
+      </div>
+    </a>
+    <a href="#projects" class="links-buttons">
+      <img src="home.png" alt="Projects" class="nav-images">
+      <div class="label-div">
+        <p class="labels">Projects</p>
+      </div>
+    </a>
+    <a href="#contact" class="links-buttons">
+      <img src="home.png" alt="Contact" class="nav-images">
+      <div class="label-div">
+        <p class="labels">Contact</p>
+      </div>
+    </a>
   </nav>
   <section id="introduction">
     <div id="rectangle"></div>
@@ -29,11 +52,17 @@
     </div>
   </section>
    <section id="about">
-    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, ex vero modi qui dicta aperiam natus minima nobis incidunt ducimus ratione et dolores repellat cumque repellendus accusantium unde voluptatibus voluptate!</div>
-    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, ex vero modi qui dicta aperiam natus minima nobis incidunt ducimus ratione et dolores repellat cumque repellendus accusantium unde voluptatibus voluptate!</div>
-    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, ex vero modi qui dicta aperiam natus minima nobis incidunt ducimus ratione et dolores repellat cumque repellendus accusantium unde voluptatibus voluptate!</div>
-    <div>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, ex vero modi qui dicta aperiam natus minima nobis incidunt ducimus ratione et dolores repellat cumque repellendus accusantium unde voluptatibus voluptate!</div>
-
+    <div class="section-divider">
+      <div class="left-line"></div>
+      <h2 class="sections-title">About Me</h2>
+      <div class="right-line"></div>
+    </div>
+    <content id="about-content">
+      <p id="about-text">
+        I am a developer with a passion for web development. I have a background in computer science and I am currently studying computer science at the University of California, Santa Cruz.
+      </p>
+      <img src="Pic.png" alt="" id="about-img">
+    </content>
   </section>
 
 
