@@ -200,11 +200,10 @@ section {
 }
 #skills{
   position: relative;
-  height: 125vh;
+  height: 1366px;
 }
 #skills-content{
   margin-top: 10vh;
-  height: 80vh;
   display: grid;
   grid-template-rows: 1fr 1fr;
   grid-template-columns: 1fr 1fr;
@@ -217,6 +216,7 @@ section {
 .skill-divs {
   display: flex;
   flex-direction: column;
+  overflow-x: hidden;
 }
 #game-skill-div{
   grid-area: 1 / 1 / 2 / 2;
@@ -260,23 +260,51 @@ section {
   color: white;
   padding: 5px 7.5px;
   border-radius: 10px;
+  cursor: pointer;
 }
-#engine-button{
+.activeButton {
   background-color: orange;
   color: lightblue;
   border: orange solid;
+  transition: background-color 0.35s ease-out;
 }
+
 .bottom-skill-div {
   margin-top: 15px;
   height: 315px;
-  overflow: hidden;
+  overflow-y: scroll;
   scroll-behavior: smooth;
+  transition: transform 0.5s ease-out;
+  position: relative;
+}
+
+.big-bottomskill{
+  display: flex;
+}
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 .individual-skill{
   margin-top: 20px;
   display: flex;
   text-align: center;
   align-items: center;
+  margin-right: 30px;
 }
 .image-individual {
   width: 80px;
@@ -289,5 +317,28 @@ section {
 }
 .star {
   background-color: transparent;
-  width: 40px;
+  width: 32px;
 }
+
+/*.hidden {
+  display: none;
+}*/
+
+#div1.hidden {
+  transform: translate(-100%, 0);
+  flex-basis: 0;
+}
+#div1.hidden ~ #div2 {
+  width: 100%;
+  flex-basis: 1;
+}
+#div2.hidden ~ #div1 {
+  width: 100%;
+  flex-basis: 1;
+}
+#div2.hidden {
+  transform: translate(100%, 0);
+  flex-basis: 0;
+}
+
+

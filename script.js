@@ -29,3 +29,31 @@ window.onscroll = () => {
     }
   });
 };
+
+
+function showDiv(sectionId, divId, buttonId) {
+  var section = document.getElementById(sectionId);
+
+  // Hide all divs within the specified section
+  var divs = section.querySelectorAll('.bottom-skill-div');
+  divs.forEach(div => {
+    div.classList.add('hidden');
+  });
+
+  // Show the div with the specified ID
+  var targetDiv = section.querySelector(`#${divId}`);
+  if (targetDiv) {
+    targetDiv.classList.remove('hidden');
+    targetDiv.scrollTop = 0;
+  }
+
+  var buttons = section.querySelectorAll('.buttons-skill');
+  buttons.forEach(button => {
+    button.classList.remove('activeButton');
+  });
+
+  var targetButton = section.querySelector(`#${buttonId}`);
+  if (targetButton) {
+    targetButton.classList.add('activeButton');
+  }
+}
