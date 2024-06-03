@@ -78,8 +78,8 @@ function showDiv(sectionId, divId, buttonId) {
   }
   
   function resize() {
-      width = Math.max(window.innerWidth * .25, 275),
-      height = window.innerHeight * .5,
+      width = Math.max(window.innerWidth * .3, 275),
+      height = window.innerHeight * .3,
       totalWidth = width * items.length;
     
       slider.style.width = totalWidth + "px";

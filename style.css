@@ -381,6 +381,7 @@ section {
   width: 100%;
   padding: 20px 0 50px 0;
   overflow: hidden;
+  margin-top: 50px;
 }
 .carousel__body .carousel__slider {
   position: relative;
