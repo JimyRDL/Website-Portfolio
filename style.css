@@ -23,8 +23,9 @@
 html,body {
   margin: 0;
   padding: 0;
-  background-color: #E7E7E7;
+  background-color: rgb(22,22,22);
   width: 100vw;
+  overflow-x: hidden;
 }
 body {
   line-height: 1.5;
@@ -39,6 +40,11 @@ section {
   --engine: #AA0000;
   --language: #D0A200;
   --tool: #050294;
+  --visual: green;
+  --secondary: #B06A38;
+  --frontend: #D0A200;
+  --backend: #AA0000;
+  --brown: #B06A38;
 }
 #introduction {
   width: 100%;
@@ -65,6 +71,7 @@ section {
   width: 80%;
   margin: 0 10%;
   font-family: "Montserrat", sans-serif;
+  color: white;
 }
 #dev {
   flex: 1;
@@ -82,7 +89,7 @@ section {
   height: 445px;
   transform: rotate(45deg);
   flex-shrink: 0;
-  border: 2px solid skyblue;
+  border: 4px solid skyblue;
 }
 #navbar{
   position: fixed;
@@ -148,7 +155,7 @@ section {
 .active {
   width: 104px;
   padding: 10px 15px 10px 10px;
-  background-color: orange;
+  background-color: var(--secondary);
 }
 .active.big-button {
   width: 117px;
@@ -163,7 +170,7 @@ section {
   top: 50%;
   height: 1px;
   width: 37.5%;
-  background-color: black;
+  background-color: white ;
 }
 .left-line {
   left: 0;
@@ -178,7 +185,7 @@ section {
   font-size: 2.2em;
   font-family: "Microsoft Sans Serif";
   letter-spacing: 21.6px;
-  color:skyblue;
+  color: var(--secondary);
 }
 content {
   width: 90%;
@@ -202,26 +209,27 @@ content {
   font-weight: 400;
 }
 #about-buttons-div{
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows:1fr 1fr ;
-  gap: 20px;
+  display: flex;
+  flex-direction: column;
 }
 .about-button {
   background-color: transparent;
-  border: 2px solid black;
-  color: black;
+  border: none;
+  color: var(--secondary);
   height: 50px;
   padding: 5px 7.5px;
-  border-radius: 10px;
   cursor: pointer;
-  font-size: 1.6em;
+  font-size: 1.9em;
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  text-align: start;
+  margin: 15px 0;
+  text-transform: uppercase;
 }
 .about-button:hover {
-  background-color: orange;
-  color: lightblue;
-  border:2px orange solid;
-  transition: background-color 0.25s ease-in;
+  color: skyblue;
+  transition: all 0.25s ease-in;
+  font-size: 2.1em;
 }
 .about-text-div {
   position: absolute;
@@ -229,7 +237,7 @@ content {
   top: 50%;
   transform: translate(-50%, -50%);
   display: none;
-  background-color: white;
+  background-color: rgb(35,35,35);
   z-index: 4;
   border-radius: 25px;
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
@@ -244,12 +252,18 @@ content {
   font-size: 1.75em;
   font-family: "Titillium Web", sans-serif;
   font-weight: 400;
-  color: black;
+  color: rgb(220,220,220);
   width: 100%;
   padding: 100px 50px;
 }
 .about-text-div.shown{
   display: block;
+}
+.title-about {
+  color: var(--brown);
+}
+.subtitle-about {
+  color: skyblue;
 }
 .closing-button {
   width: 25px;
@@ -280,6 +294,10 @@ content {
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  background-color: rgb(35,35,35);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 #game-skill-div{
   grid-area: 1 / 1 / 2 / 2;
@@ -295,7 +313,7 @@ content {
   grid-area: 2 / 2 / 3 / 3;
 }
 .upper-skill-div {
-  border-bottom: 2px white solid;
+  border-bottom: 2px var(--secondary) solid;
   padding-bottom: 15px;
   height: 144px;
   display: flex;
@@ -307,7 +325,7 @@ content {
   align-items: center;
   justify-content: center;
   gap: 25px;
-  padding-bottom: 15px; 
+  padding-bottom: 15px;
 }
 .title-img{
   width: 80px;
@@ -321,6 +339,8 @@ content {
 .title-text{
   font-family: "Monomaniac One", sans-serif;
   font-size: 1.8em;
+  color: var(--secondary);
+  font-weight: 100;
 }
 .buttons-skill-div {
   display: flex;
@@ -334,19 +354,25 @@ content {
   padding: 5px 7.5px;
   border-radius: 10px;
   cursor: pointer;
+  font-family: "Montserrat";
+  transition: all 0.35s ease-out;
+}
+.buttons-skill:hover{
+  background-color: #D98345;
+  color: skyblue;
+  border: 2px solid #D98345;
 }
 .activeButton {
-  background-color: orange;
-  color: lightblue;
-  border: orange solid;
-  transition: background-color 0.35s ease-out;
+  background-color: var(--secondary);
+  color: skyblue;
+  border: 2px var(--secondary) solid;
 }
 
 .bottom-skill-div {
   margin-top: 15px;
   width: 100%;
   height: 335px;
-  overflow-y: scroll;
+  overflow-y: auto;
   scroll-behavior: smooth;
   transition: transform 0.5s ease-out;
   position: relative;
@@ -366,12 +392,12 @@ content {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: #888;
+  background: orange;
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #555;
+  background: orangered;
 }
 .individual-skill{
   margin-top: 20px;
@@ -395,7 +421,7 @@ content {
 }
 
 .div1.hidden {
-  transform: translate(-100%, 0);
+  transform: translate(-150%, 0);
   flex-basis: 0;
 }
 .div1.hidden ~ .div2 {
@@ -407,7 +433,7 @@ content {
   flex-basis: 1;
 }
 .div2.hidden {
-  transform: translate(100%, 0);
+  transform: translate(150%, 0);
   flex-basis: 0;
 }
 
@@ -417,35 +443,59 @@ content {
 }
 #project-content {
   margin-top: 10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+#project-content > .hidden {
+  display: none;
+}
+.buttons-project-div {
+  margin-bottom: 50px;
+  display: flex;
+  gap: 25px;
+}
+.project-container {
   display: grid;
-  grid-template-columns: repeat(2, 559px);
+  grid-template-columns: repeat(1, 559px);
   column-gap: 50px;
   row-gap: 200px; 
   overflow: hidden;
+  justify-content: center;
 }
 
 .imggrid {
   width: 100%;
   height: 340px;
-  background-color: rgb(45,45,45);
   position: relative;
+  background-color: black;
+}
+.imggrid.website {
+  height: 272px;
+  position: relative;
+}
+.image-web {
+  width: 101%;
+  height: 272px;
 }
 .fade {
   position: absolute;
   width: 100%;
   height: 100%;
-  /* background-color: white; */
+  background-color: white;
   opacity: 20%;
   top: 0;
 }
 .midgrid {
   width: 100%;
-  padding-top: 20px; 
-  height: 50px;
-  background-color:rgb(230,230,230); 
+  height: 100px;
   display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
   align-items: center;
   justify-content:space-evenly;
+  padding: 20px 20px 0px 20px;
 }
 .attributes{
   font-size: 1.5em;
@@ -454,6 +504,7 @@ content {
   padding: 5px 20px;
   text-align: center;
   border-radius: 12px;
+  flex-basis: max-content;
 }
 .engine {
   background-color: var(--engine);
@@ -464,39 +515,59 @@ content {
 .tool {
   background-color: var(--tool);
 }
+.visual {
+  background-color: var(--visual);
+}
+.frontend {
+  background-color: var(--frontend);
+}
+.backend {
+  background-color: var(--backend);
+}
 .bottomgrid{
   width: 100%;
-  height: 230px;
-  background-color:rgb(230,230,230); 
+  height: 260px;
+  background-color:rgb(35,35,35);
 }
 .bottomgrid-container {
   width: 100%;
   height: 180px;
   padding: 20px 30px;
   font-family: "Montserrat", sans-serif;
+  
 }
 .game-title {
-  color:orange;
+  color: var(--secondary);
   font-size: 2.3em;
   font-style: italic;
-  text-decoration: underline;
+  text-decoration: underline !important;
+}
+.game-subtitle {
+  color: skyblue;
+  margin-top: 3px;
+  font-size: 1.85em;
+}
+a {
+  text-decoration: none;
 }
 .game-description{
-  color: black;
+  color: white;
   margin-top: 10px;
   font-size: 1.6em;
 }
 .project-div {
-  margin: 15px;
-  width: 544; 
-  height: 570px;
+  width: 559px; 
+  height: 620px;
   overflow: hidden;
   border-radius: 15px;
   box-shadow: 0px 0px 10px rgba(0,0,0,0.5);
+  background-color:rgb(35,35,35);
+}
+.project-div.website {
+  height: 530px;
 }
 
 .image-individual::after {
-  content: attr(data-tooltip);
   position: absolute;
   bottom: 125%; /* Position above the image */
   left: 50%;
@@ -516,4 +587,27 @@ content {
 .image-individual:hover::after {
   opacity: 1;
   visibility: visible;
+}
+#contact-content{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  z-index: 1;
+}
+.social-media{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.imageEmail {
+  width: 50px;
+}
+.email {
+  color: skyblue;
+  font-size: 2em;
+  font-family: "Montserrat";
 }

@@ -57,6 +57,31 @@ function showDiv(sectionId, divId, buttonId) {
     targetButton.classList.add('activeButton');
   }
 }
+function showDivProject(sectionId, divId, buttonId) {
+  var content = document.getElementById(sectionId);
+
+  // Hide all divs within the specified section
+  var divs = content.querySelectorAll('.project-container');
+  divs.forEach(div => {
+    div.classList.add('hidden');
+  });
+
+  // Show the div with the specified ID
+  var targetDiv = content.querySelector(`#${divId}`);
+  if (targetDiv) {
+    targetDiv.classList.remove('hidden');
+  }
+
+  var buttons = content.querySelectorAll('.buttons-skill');
+  buttons.forEach(button => {
+    button.classList.remove('activeButton');
+  });
+
+  var targetButton = content.querySelector(`#${buttonId}`);
+  if (targetButton) {
+    targetButton.classList.add('activeButton');
+  }
+}
 
 function showAbout(divId) {
   var div = document.querySelector(`#${divId}`)
