@@ -41,7 +41,7 @@ function showDiv(sectionId, divId, buttonId) {
   });
 
   // Show the div with the specified ID
-  var targetDiv = section.querySelector(`#${divId}`);
+  var targetDiv = section.querySelector(`.${divId}`);
   if (targetDiv) {
     targetDiv.classList.remove('hidden');
     targetDiv.scrollTop = 0;
@@ -56,4 +56,22 @@ function showDiv(sectionId, divId, buttonId) {
   if (targetButton) {
     targetButton.classList.add('activeButton');
   }
+}
+
+function showAbout(divId) {
+  var div = document.querySelector(`#${divId}`)
+  var divs = document.querySelectorAll('.about-text-div');
+  divs.forEach(div => {
+    div.classList.remove('shown');
+  });
+  div.classList.add('shown');
+  
+}
+
+function hideAbout() { 
+  var divs = document.querySelectorAll('.about-text-div');
+
+  divs.forEach(div => {
+    div.classList.remove('shown');
+  });
 }
